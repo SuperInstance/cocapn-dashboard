@@ -8,11 +8,11 @@ Live bioluminescent dashboard for the Cocapn AI Fleet.
 
 | Metric | Value |
 |--------|-------|
-| Services | 17 |
-| PLATO Rooms | 75 |
-| Knowledge Tiles | 3,222+ |
-| Arena Agents | 10 |
-| MUD Rooms | 21 |
+| Services | 24/31 UP |
+| PLATO Rooms | 584 |
+| Knowledge Tiles | 7,970+ |
+| Arena Agents | 144 |
+| MUD Rooms | 33 |
 
 ## Built With
 
