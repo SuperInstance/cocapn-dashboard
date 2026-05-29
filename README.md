@@ -1,30 +1,31 @@
-# Cocapn Fleet Dashboard
+# cocapn-dashboard
 
-Live bioluminescent dashboard for the Cocapn AI Fleet.
+Web dashboard for the Cocapn Fleet — single-page HTML interface for monitoring fleet status, vessels, and operations.
 
-**Live URL:** https://superinstance.github.io/cocapn-dashboard/
+## What This Gives You
 
-## Stats
+- **Single-page dashboard** — zero-build, zero-dependency HTML interface
+- **Fleet status overview** — at-a-glance health of all vessels
+- **Dark theme** — fleet-native dark UI matching the Cocapn aesthetic
 
-| Metric | Value |
-|--------|-------|
-| Services | 24/31 UP |
-| PLATO Rooms | 584 |
-| Knowledge Tiles | 7,970+ |
-| Arena Agents | 144 |
-| MUD Rooms | 33 |
+## Quick Start
 
-## Built With
+```bash
+# Just open it
+open index.html
+# Or serve it
+python -m http.server 8000
+```
 
-- Pure HTML/CSS/JS — no build step
-- Bioluminescent deep-ocean theme
-- Auto-refreshing service status indicators
-- Responsive grid layout
+## How It Fits
 
-## Deploy
+The web UI for the Cocapn Fleet. Part of the SuperInstance ecosystem.
 
-Pushed to `gh-pages` branch via GitHub Pages.
+Related repos:
+- [cocapn-core](https://github.com/SuperInstance/cocapn-core) — core fleet library
+- [cocapn-telemetry](https://github.com/SuperInstance/cocapn-telemetry) — metrics collection
+- [cocapn-landing](https://github.com/SuperInstance/cocapn-landing) — landing page
 
-## Fleet
+## License
 
-Part of the [Cocapn Fleet](https://github.com/cocapn) — the world's first free public AI agent training infrastructure.
+Apache 2.0
