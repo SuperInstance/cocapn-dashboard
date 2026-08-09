@@ -1,0 +1,26 @@
+{
+  "name": "cocapn-dashboard",
+  "version": "1.0.0",
+  "description": "Live command deck for the Cocapn Fleet — real-time monitoring of services, knowledge tiles, PLATO rooms, MUD exploration, and arena leaderboard.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node tests/test_dashboard.js"
+  },
+  "keywords": [
+    "cocapn",
+    "fleet",
+    "dashboard",
+    "ai-agents",
+    "mud",
+    "plato",
+    "arena",
+    "monitoring"
+  ],
+  "author": "Oracle1 & the Cocapn Fleet",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SuperInstance/cocapn-dashboard.git"
+  }
+}
