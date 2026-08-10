@@ -222,10 +222,11 @@ class FetchMock {
   }
 }
 
-function mockFetchResponse(ok, json, statusText = '') {
+function mockFetchResponse(statusCode, json, statusText = '') {
+  const ok = statusCode >= 200 && statusCode < 300;
   return {
     ok,
-    status: ok ? 200 : 500,
+    status: statusCode,
     statusText,
     async json() {
       if (!ok) throw new Error(statusText);
@@ -238,7 +239,7 @@ function mockFetchResponse(ok, json, statusText = '') {
 // ---------------------------------------------------------------------------
 // -- AbortSignal mock --
 // ---------------------------------------------------------------------------
-const AbortSignal = { timeout: () => undefined };
+const AbortSignal = { timeout: (ms) => ({ aborted: false, reason: undefined }) };
 
 // ---------------------------------------------------------------------------
 // -- Globals Setup --
@@ -315,7 +316,8 @@ function quickCmd(cmd) {
 // --- Core: api() — fetch wrapper with timeout ---
 async function api(url, opt = {}) {
   try {
-    const r = await fetch(url, { ...opt, signal: AbortSignal.timeout(8000) });
+    const signal = AbortSignal.timeout(8000);
+    const r = await fetch(url, { ...opt, signal });
     if (!r.ok) return { error: 'HTTP ' + r.status };
     return await r.json();
   } catch (e) {
@@ -325,7 +327,7 @@ async function api(url, opt = {}) {
 
 // --- Core: connectMUD() — connects agent to MUD ---
 async function connectMUD() {
-  agent = 'web-' + Math.random().toString(36).slice(2, 6);
+  agent = 'web-' + Math.random().toString(36).slice(2, 8);
   out('cmd', '> connect ' + agent);
   const d = await api(MUD + '/connect?agent=' + agent + '&job=scholar');
   if (d.room) {
@@ -426,6 +428,7 @@ async function loadTiles() {
 async function loadServices() {
   try {
     const d = await api(FLEET + '/status');
+    if (d.error) throw new Error(d.error);
     const svc = d.services || {};
     let up = 0, down = 0;
 
@@ -450,7 +453,8 @@ async function loadServices() {
 async function loadArena() {
   try {
     const d = await api(ARENA + '/leaderboard');
-    const lb = d.leaderboard || [];
+    if (d.error) throw new Error(d.error);
+    const lb = (d.leaderboard || []).sort((a, b) => (b.rating || 0) - (a.rating || 0));
     const el = document.getElementById('arena-lb');
 
     if (!lb.length) {
@@ -1238,22 +1242,6 @@ test('FLEET endpoint is correctly defined', () => {
 // == RUNNER ==
 // ---------------------------------------------------------------------------
 
-let passed = 0, failed = 0;
-const failures = [];
-
-for (const { name, fn } of tests) {
-  try {
-    const result = fn();
-    if (result instanceof Promise) {
-      // For async tests we need to run sequentially; use a runner
-    }
-  } catch (e) {
-    failed++;
-    failures.push({ name, error: e });
-  }
-}
-
-// Since we have async tests, run them properly
 (async () => {
   let p = 0, f = 0;
   const fails = [];

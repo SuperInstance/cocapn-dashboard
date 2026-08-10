@@ -331,7 +331,7 @@ async function api(url,opt={}){
 }
 
 async function connectMUD(){
-  agent='web-'+Math.random().toString(36).slice(2,6);
+  agent='web-'+Math.random().toString(36).slice(2,8);
   out('cmd','> connect '+agent);
   const d=await api(MUD+'/connect?agent='+agent+'&job=scholar');
   if(d.room){
@@ -393,6 +393,7 @@ async function loadTiles(){
 async function loadServices(){
   try{
     const d=await api(FLEET+'/status');
+    if(d.error)throw new Error(d.error);
     const svc=d.services||{};let up=0,down=0;
     const list=document.getElementById('svc-list');
     list.innerHTML=Object.entries(svc).map(([name,s])=>{
@@ -411,7 +412,8 @@ async function loadServices(){
 async function loadArena(){
   try{
     const d=await api(ARENA+'/leaderboard');
-    const lb=d.leaderboard||[];
+    if(d.error)throw new Error(d.error);
+    const lb=(d.leaderboard||[]).sort((a,b)=>(b.rating||0)-(a.rating||0));
     const el=document.getElementById('arena-lb');
     if(!lb.length){el.innerHTML='<div style="color:var(--text-dim);font-size:.75rem;text-align:center;padding:1rem">No matches recorded yet</div>';return}
     const maxElo=Math.max(...lb.map(a=>a.rating||600));
