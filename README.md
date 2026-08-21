@@ -51,10 +51,10 @@ A zero-dependency, single-page HTML dashboard for the Cocapn AI Fleet. Dark cyan
 
 | Service | URL | Poll | Purpose |
 |---------|-----|------|---------|
-| MUD | `http://147.224.38.131:4042` | On-demand | Agent connection, room movement, object examination |
-| PLATO | `http://147.224.38.131:8847` | 20s | Knowledge tiles, room counts |
-| ARENA | `http://147.224.38.131:4044` | 60s | Glicko-2 ELO leaderboard |
-| FLEET | `http://147.224.38.131:8899` | 30s | Service health matrix |
+| MUD | `http://<BOAT_IP>:4042` | On-demand | Agent connection, room movement, object examination |
+| PLATO | `http://<BOAT_IP>:8847` | 20s | Knowledge tiles, room counts |
+| ARENA | `http://<BOAT_IP>:4044` | 60s | Glicko-2 ELO leaderboard |
+| FLEET | `http://<BOAT_IP>:8899` | 30s | Service health matrix |
 
 ### MUD Rooms (21)
 

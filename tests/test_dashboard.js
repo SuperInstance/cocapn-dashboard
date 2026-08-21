@@ -276,10 +276,10 @@ global.setInterval = () => 0;
 // so tests exercise the real algorithmic behavior.
 // ---------------------------------------------------------------------------
 
-const MUD = 'http://147.224.38.131:4042';
-const PLATO = 'http://147.224.38.131:8847';
-const ARENA = 'http://147.224.38.131:4044';
-const FLEET = 'http://147.224.38.131:8899';
+const MUD = 'http://<BOAT_IP>:4042';
+const PLATO = 'http://<BOAT_IP>:8847';
+const ARENA = 'http://<BOAT_IP>:4044';
+const FLEET = 'http://<BOAT_IP>:8899';
 
 let agent = null, room = null, tileHistory = [], activityHistory = [];
 
@@ -1223,19 +1223,19 @@ test('multiple connects generate different agent names', async () => {
 // --- Constants Tests ---
 
 test('MUD endpoint is correctly defined', () => {
-  assert.strictEqual(MUD, 'http://147.224.38.131:4042');
+  assert.strictEqual(MUD, 'http://<BOAT_IP>:4042');
 });
 
 test('PLATO endpoint is correctly defined', () => {
-  assert.strictEqual(PLATO, 'http://147.224.38.131:8847');
+  assert.strictEqual(PLATO, 'http://<BOAT_IP>:8847');
 });
 
 test('ARENA endpoint is correctly defined', () => {
-  assert.strictEqual(ARENA, 'http://147.224.38.131:4044');
+  assert.strictEqual(ARENA, 'http://<BOAT_IP>:4044');
 });
 
 test('FLEET endpoint is correctly defined', () => {
-  assert.strictEqual(FLEET, 'http://147.224.38.131:8899');
+  assert.strictEqual(FLEET, 'http://<BOAT_IP>:8899');
 });
 
 // ---------------------------------------------------------------------------
