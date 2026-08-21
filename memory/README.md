@@ -14,7 +14,7 @@ This directory holds the dashboard agent's journal — a running record of watch
 
 The dashboard watches these repos, and its journal references them:
 
-- [fleet-wiki](https://github.com/SuperInstance/fleet-wiki) — Knowledge source for PLATO tiles
+- [lucineer-fleet-wiki](https://github.com/SuperInstance/lucineer-fleet-wiki) — Knowledge source for PLATO tiles
 - [cocapn-core](https://github.com/SuperInstance/cocapn-core) — Core fleet library
 - [fleet-connections](https://github.com/SuperInstance/fleet-connections) — Integration keel
 - [fleet-envelope](https://github.com/SuperInstance/fleet-envelope) — Event grammar

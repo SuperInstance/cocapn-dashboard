@@ -89,7 +89,7 @@ node tests/test_dashboard.js
 
 The dashboard is the observation deck — it watches but doesn't touch:
 
-- **Data source:** [fleet-wiki](https://github.com/SuperInstance/fleet-wiki) — wiki pages feed into PLATO tiles
+- **Data source:** [lucineer-fleet-wiki](https://github.com/SuperInstance/lucineer-fleet-wiki) — wiki pages feed into PLATO tiles
 - **Two views:** [fleet-dashboard](https://github.com/SuperInstance/fleet-dashboard) — the other fleet dashboard, different perspective
 - **Integration keel:** [fleet-connections](https://github.com/SuperInstance/fleet-connections) — wires the dashboard into the 7-repo integration layer
 - **Event grammar:** [fleet-envelope](https://github.com/SuperInstance/fleet-envelope) — events the dashboard visualizes
@@ -103,7 +103,7 @@ The dashboard is the observation deck — it watches but doesn't touch:
 
 ## The Towfish Connection
 
-The dashboard IS a towfish — dragging its sensors through the fleet's data streams, collecting signals, displaying them on the surface. Where [hermes-perception](https://github.com/SuperInstance/hermes-perception) is the sensory system underwater, the dashboard is the readout on the ship above.
+The dashboard IS a towfish — dragging its sensors through the fleet's data streams, collecting signals, displaying them on the surface. Where [hermes-avatar](https://github.com/SuperInstance/hermes-avatar) is the sensory system underwater, the dashboard is the readout on the ship above.
 
 ---
 
